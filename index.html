@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore personagens, planetas e filmes de Star Wars usando a SWAPI.">
+    <title>Explorador Star Wars</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav">
+            <a class="brand" href="#" aria-label="Página inicial">
+                ✦ Explorador<span>/ SW</span>
+            </a>
+            <p class="tagline">Explorador de dados do universo Star Wars</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">UMA GALÁXIA MUITO, MUITO DISTANTE</p>
+            <h1>Explore o universo de <em>Star Wars.</em></h1>
+            <p class="intro">Descubra personagens, planetas e filmes usando dados da Star Wars API.</p>
+        </section>
+
+        <section class="explorer" aria-label="Explorador Star Wars">
+            <div class="tabs" role="group" aria-label="Tipo de conteúdo">
+                <button class="tab active" type="button" data-kind="people" aria-pressed="true">♙ Personagens</button>
+                <button class="tab" type="button" data-kind="planets" aria-pressed="false">◉ Planetas</button>
+                <button class="tab" type="button" data-kind="films" aria-pressed="false">▣ Filmes</button>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2 id="sectionTitle">Personagens</h2>
+                    <p id="sectionDescription">Conheça os habitantes da galáxia.</p>
+                </div>
+                <p class="result-count" id="resultCount">Carregando...</p>
+            </div>
+
+            <form class="search-form" id="searchForm">
+                <label class="sr-only" for="searchInput">Pesquisar por nome</label>
+                <input id="searchInput" type="search" placeholder="Buscar por nome..." autocomplete="off">
+                <button class="button button-primary" type="submit">Buscar</button>
+                <button class="button button-secondary" id="clearSearch" type="button">Limpar</button>
+            </form>
+
+            <p class="message hidden" id="message" role="status"></p>
+
+            <div class="grid" id="cards" aria-live="polite">
+                <div class="loading">Conectando à holorrede...</div>
+            </div>
+
+            <nav class="pagination" aria-label="Paginação dos resultados">
+                <button class="button button-secondary" id="prevBtn" type="button" disabled>← Anterior</button>
+                <span id="pageLabel">Página 1</span>
+                <button class="button button-secondary" id="nextBtn" type="button" disabled>Próxima →</button>
+            </nav>
+        </section>
+
+        <section class="detail-panel" id="detail" aria-labelledby="detailTitle" hidden>
+            <div class="detail-header">
+                <div>
+                    <p class="eyebrow">ARQUIVO DA GALÁXIA</p>
+                    <h2 id="detailTitle">Detalhes</h2>
+                </div>
+                <button class="button button-secondary" id="closeDetail" type="button">Fechar ✕</button>
+            </div>
+            <div class="detail-grid" id="detailGrid"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Desenvolvido por <strong>Vittor Aparicio Buvoini</strong></p>
+        <p>Fundamentos ao Desenvolvimento Web · Sistemas de Informação · Unoesc</p>
+        <p class="footer-note">Dados fornecidos pela <a href="https://swapi.dev/" target="_blank" rel="noopener noreferrer">Star Wars API (SWAPI)</a>.</p>
+    </footer>
+</body>
+</html>
